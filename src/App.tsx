@@ -17,13 +17,11 @@ function App() {
   let [reviseSentence, setReviseSentence] = useState<Revise>();
 
   const onChangeSentence = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    console.log(e);
     let inputValue = e.target.value;
     setSentence(inputValue);
   };
 
   const onExecSentence = () => {
-    console.log('0000');
     postSentence();
     // console.log(JSON.stringify(riviseData));
   };
