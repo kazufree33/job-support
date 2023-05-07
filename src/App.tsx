@@ -15,15 +15,17 @@ type Revise = {
 function App() {
   let [sentence, setSentence] = useState('');
   let [reviseSentence, setReviseSentence] = useState<Revise>();
+  let [isSentenceLoading, setIsSentenceLoading] = useState<boolean>();
 
   const onChangeSentence = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     let inputValue = e.target.value;
     setSentence(inputValue);
   };
 
-  const onExecSentence = () => {
-    postSentence();
-    // console.log(JSON.stringify(riviseData));
+  const onExecSentence = async () => {
+    setIsSentenceLoading(true);
+    await postSentence();
+    setIsSentenceLoading(false);
   };
 
   async function postSentence(): Promise<void> {
@@ -53,6 +55,7 @@ function App() {
       </Box>
       <Box m={4}>
         <Button
+          isLoading={isSentenceLoading}
           bg="brand.10"
           _hover={{ bg: 'brand.10' }}
           onClick={onExecSentence}
