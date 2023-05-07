@@ -46,12 +46,15 @@ function App() {
       <Box bg="brand.10" w="100%" p={4} m={4} color="white">
         文章校正ツール
       </Box>
-      <Box m={4}>
+      <Box ml={4}>
         <Textarea
           value={sentence}
           onChange={onChangeSentence}
           placeholder="校正してほしい文章をここに入力してください"
         />
+      </Box>
+      <Box ml={8} display="flex" color="gray.500">
+        入力例：申請書の提出の期限の変更の依頼をします。
       </Box>
       <Box m={4}>
         <Button
@@ -63,9 +66,8 @@ function App() {
           校正する
         </Button>
       </Box>
-
       <Box bg="brand.50" m={4} p={8} w="100%">
-        <Box display="flex" alignItems="left">
+        <Box display="flex" alignItems="left" color="brand.10">
           校正結果
         </Box>
         <Divider borderColor="brand.10" />
